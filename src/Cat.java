@@ -1,6 +1,6 @@
 @VeryImportant // Create VeryImportant.java
 public class Cat {
-
+    @ImportantString
     String name;
     int age;
 

@@ -1,3 +1,4 @@
+import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -47,6 +48,19 @@ public class CreatingAnnotations
                 for (int i = 0; i < annotation.times(); i++)
                 {
                     method.invoke(myCat);
+                }
+            }
+        }
+
+        for (Field field : myCat.getClass().getDeclaredFields())
+        {
+            if (field.isAnnotationPresent(ImportantString.class))
+            {
+                Object objectValue = field.get(myCat);
+
+                if (objectValue instanceof String stringValue)
+                {
+                    System.out.println(stringValue.toUpperCase());
                 }
             }
         }
