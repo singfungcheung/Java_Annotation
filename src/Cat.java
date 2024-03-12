@@ -6,7 +6,7 @@ public class Cat {
 
     public Cat(String name) {this.name = name;}
 
-    @VeryImportant
+    @RunImmediately
     public void meow() {System.out.println("Meow!");}
 
     public void eat() {System.out.println("Munch");}

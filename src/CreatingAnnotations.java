@@ -1,7 +1,9 @@
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+
 public class CreatingAnnotations
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) throws InvocationTargetException, IllegalAccessException {
         // Annotations are meta-data that describes the code. It has no effect
         // on the code, but it can be processed by the compiler.
 
@@ -34,6 +36,14 @@ public class CreatingAnnotations
         {
             System.out.println("This thing is not very important!");
             myDog.bark();
+        }
+
+        for (Method method : myCat.getClass().getDeclaredMethods())
+        {
+            if(method.isAnnotationPresent(RunImmediately.class))
+            {
+                method.invoke(myCat);
+            }
         }
     }
 }
