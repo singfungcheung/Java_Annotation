@@ -15,7 +15,7 @@ public class CreatingAnnotations
         */
 
         Cat myCat = new Cat("Wonyoung");
-
+        Dog myDog = new Dog("Benji");
         if(myCat.getClass().isAnnotationPresent(VeryImportant.class))
         {
             System.out.println("This thing is very important!");
@@ -23,6 +23,17 @@ public class CreatingAnnotations
         else
         {
             System.out.println("This thing is not very important!");
+        }
+
+        if(myDog.getClass().isAnnotationPresent(VeryImportant.class))
+        {
+            System.out.println("This thing is very important!");
+            myDog.bark();
+        }
+        else
+        {
+            System.out.println("This thing is not very important!");
+            myDog.bark();
         }
     }
 }
